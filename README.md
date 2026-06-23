@@ -18,6 +18,7 @@
 4. AWS
 
 ## 使用步驟
+所有file都要在同一個folder
 1. 使用SSH連接樹莓派
    ```bash
     ssh bjhd@rpi5-05.local
