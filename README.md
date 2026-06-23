@@ -17,4 +17,41 @@
 3. MobileNetV3 CNN
 4. AWS
 
-## 
+## 使用步驟
+1. 使用SSH連接樹莓派
+   ```bash
+    ssh bjhd@rpi5-05.local
+    # 或者輸入樹莓派的實際 IP 位址
+    # ssh bjhd@<你的樹莓派IP>
+2. 安裝樹莓派相機模組
+   ```bash
+   # 安裝相機模組
+   sudo apt update
+   sudo apt install rpicam-apps -y
+3. 建立虛擬環境
+   ```bash
+   # 建立資料夾 (Make Directory)
+   mkdir my_project
+
+   # 切換進去該資料夾 (Change Directory)
+   cd my_project
+   
+   # 建立虛擬環境 (若先前已建立則可跳過此行)
+   python3 -m venv env
+
+   # 啟動虛擬環境
+   source env/bin/activate
+4. 下載所有模組
+   ```bash
+   # 更新 pip 工具
+   pip install --upgrade pip
+
+   # 安裝 CPU 版本的 PyTorch 與 torchvision 輕量化套件
+   pip install torch torchvision --index-url [https://download.pytorch.org/whl/cpu](https://download.pytorch.org/whl/cpu)
+
+   # 安裝影像處理與 AWS IoT SDK
+   pip install opencv-python Pillow awsiotsdk
+5. 使用指令驅動python程式
+   ```bash
+   python3 main_loop.py
+6. 使用 ctrl + c 結束程式！
